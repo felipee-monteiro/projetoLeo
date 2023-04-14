@@ -9,48 +9,59 @@
         </Property>
       </Properties>
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="menuInicio">
+        <Menu class="javax.swing.JMenu" name="menuInicio2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="In&#xed;cio"/>
+            <Property name="text" type="java.lang.String" value="Menu"/>
           </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="menuCriarQuiz">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Criar Quiz"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="menuExplorar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Explorar"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="menuBadges">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Badges"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="menuComunidade">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Comunidade"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="menuPreferencias">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Prefer&#xea;ncias"/>
-          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="createQuizMenu2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Criar Quiz"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createQuizMenu2ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Prefer&#xea;ncias"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="myProfile1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Meu Perfil"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="myProfile1ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pesquisar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Home"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[433, 32768]"/>
-    </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[433, 27]"/>
-    </Property>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[433, 27]"/>
     </Property>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -403,7 +414,7 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imgs/adicionar.png"/>
+              <Image iconType="3" name="/img/adicionar.png"/>
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
