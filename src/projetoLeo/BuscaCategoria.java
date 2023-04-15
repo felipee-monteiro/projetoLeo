@@ -251,12 +251,12 @@ public class BuscaCategoria extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         this.setVisible(false);
-        new TelaPreferencias2().setVisible(true);
+        new TelaPreferencias().setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void myProfile1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myProfile1ActionPerformed
         this.setVisible(false);
-        new TelaPerfil2().setVisible(true);
+        new TelaPerfil().setVisible(true);
     }//GEN-LAST:event_myProfile1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
