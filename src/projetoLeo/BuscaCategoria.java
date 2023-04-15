@@ -46,8 +46,8 @@ public class BuscaCategoria extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio2 = new javax.swing.JMenu();
         createQuizMenu2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         myProfile1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
 
@@ -192,14 +192,6 @@ public class BuscaCategoria extends javax.swing.JFrame {
         });
         menuInicio2.add(createQuizMenu2);
 
-        jMenuItem3.setText("Preferências");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        menuInicio2.add(jMenuItem3);
-
         myProfile1.setText("Meu Perfil");
         myProfile1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,6 +199,14 @@ public class BuscaCategoria extends javax.swing.JFrame {
             }
         });
         menuInicio2.add(myProfile1);
+
+        jMenuItem3.setText("Preferências");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        menuInicio2.add(jMenuItem3);
 
         jMenuItem1.setText("Pesquisar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
