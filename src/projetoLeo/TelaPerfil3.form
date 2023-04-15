@@ -194,7 +194,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Light" size="24" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Meu perfil"/>
+            <Property name="text" type="java.lang.String" value="Meu Perfil"/>
           </Properties>
         </Component>
       </SubComponents>
