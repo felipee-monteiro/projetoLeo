@@ -316,7 +316,7 @@ public class NewQuizTela2 extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         this.setVisible(false);
-        new BuscaCategoria().setVisible(true);
+        //new Categoria().setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
