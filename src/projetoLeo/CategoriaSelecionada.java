@@ -16,6 +16,7 @@ public class CategoriaSelecionada extends javax.swing.JFrame {
      */
     public CategoriaSelecionada() {
         initComponents();
+        
     }
 
     /**
