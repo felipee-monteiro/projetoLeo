@@ -2,8 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-import javax.swing.UIManager;
 package projetoLeo;
+import javax.swing.UIManager;
 
 /**
  *
@@ -210,7 +210,6 @@ public class CategoriaSelecionada extends javax.swing.JFrame {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
