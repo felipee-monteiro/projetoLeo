@@ -51,7 +51,7 @@ public class Categoria extends javax.swing.JFrame {
         setTitle("Categorias");
         setSize(new java.awt.Dimension(1280, 720));
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
@@ -62,8 +62,7 @@ public class Categoria extends javax.swing.JFrame {
         jLabel2.setPreferredSize(new java.awt.Dimension(220, 180));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("GEOGRAFIA");
+        jLabel3.setText("Geografia");
         jLabel3.setToolTipText("");
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetoLeo/img/esporte.jpg"))); // NOI18N
@@ -82,28 +81,23 @@ public class Categoria extends javax.swing.JFrame {
         jLabel8.setPreferredSize(new java.awt.Dimension(220, 180));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("CIÊNCIAS");
+        jLabel9.setText("Ciências");
         jLabel9.setToolTipText("");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("CINEMA");
+        jLabel10.setText("Cinema");
         jLabel10.setToolTipText("");
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("MATEMÁTICA");
+        jLabel11.setText("Matemática");
         jLabel11.setToolTipText("");
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("MÚSICA");
+        jLabel12.setText("Música");
         jLabel12.setToolTipText("");
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("ESPORTE");
+        jLabel13.setText("Esporte");
         jLabel13.setToolTipText("");
 
         jButton1.setBackground(new java.awt.Color(0, 102, 255));
