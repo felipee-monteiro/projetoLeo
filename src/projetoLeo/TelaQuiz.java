@@ -377,6 +377,8 @@ public class TelaQuiz extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         setSize(new java.awt.Dimension(1296, 728));
@@ -444,11 +446,7 @@ public class TelaQuiz extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton14;
     private javax.swing.JRadioButton jRadioButton15;
     private javax.swing.JRadioButton jRadioButton16;
-    private javax.swing.JRadioButton jRadioButton17;
-    private javax.swing.JRadioButton jRadioButton18;
-    private javax.swing.JRadioButton jRadioButton19;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton20;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
