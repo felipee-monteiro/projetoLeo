@@ -1,5 +1,8 @@
 package projetoLeo;
 
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 /*
@@ -152,20 +155,22 @@ public class NewQuizTela1 extends javax.swing.JFrame {
         jLabel11.setText("Adicionar imagem:");
 
         comboCategoria.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        comboCategoria.setForeground(new java.awt.Color(153, 153, 153));
+        comboCategoria.setForeground(new java.awt.Color(51, 51, 51));
         comboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Astrologia", "Biologia", "Ciência", "Diversos", "Entretenimento", "Esportes", "Exatas", "Gaming", "Geografia", "História", "Linguagens", "Música", "Política", "Tecnologia" }));
 
         jTextField2.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(51, 51, 51));
 
         jTextField3.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        jTextField3.setForeground(new java.awt.Color(51, 51, 51));
 
         jTextField4.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField4.setForeground(new java.awt.Color(51, 51, 51));
         jTextField4.setText("www.quizgenerator.com.br/nomedolink");
 
         comboTemporizador.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        comboTemporizador.setForeground(new java.awt.Color(153, 153, 153));
-        comboTemporizador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "1 minuto", "2 minutos", "3 minutos", "4 minutos", "5 minutos", "6 minutos", "7 minutos", "8 minutos", "9 minutos", "10 minutos" }));
+        comboTemporizador.setForeground(new java.awt.Color(51, 51, 51));
+        comboTemporizador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "1 minuto", "2 minutos", "3 minutos", "4 minutos", "5 minutos" }));
         comboTemporizador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboTemporizadorActionPerformed(evt);
@@ -173,13 +178,20 @@ public class NewQuizTela1 extends javax.swing.JFrame {
         });
 
         jTextField1.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(51, 51, 51));
 
         jTextField5.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        jTextField5.setForeground(new java.awt.Color(51, 51, 51));
 
         btImportarArquivo.setBackground(new java.awt.Color(204, 204, 204));
         btImportarArquivo.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
         btImportarArquivo.setForeground(new java.awt.Color(255, 255, 255));
         btImportarArquivo.setText("IMPORTAR ARQUIVO");
+        btImportarArquivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btImportarArquivoActionPerformed(evt);
+            }
+        });
 
         btAvancar.setBackground(new java.awt.Color(0, 102, 255));
         btAvancar.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
@@ -317,18 +329,19 @@ public class NewQuizTela1 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(426, 426, 426)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(426, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(182, 182, 182)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addGap(133, 133, 133)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboTemporizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTemporizadorActionPerformed
@@ -337,7 +350,13 @@ public class NewQuizTela1 extends javax.swing.JFrame {
 
     private void btAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAvancarActionPerformed
         this.setVisible(false);
-        new NewQuizTela2().setVisible(true);      // TODO add your handling code here:
+        // new NewQuizTela2().setVisible(true);
+        if (/*todas as informações estiverem corretamente preenchidas*/) {
+            this.setVisible(false);
+            new TelaQuiz().setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Preencha todas as informações.");
+        }
     }//GEN-LAST:event_btAvancarActionPerformed
 
     private void createQuizMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createQuizMenu2ActionPerformed
@@ -364,6 +383,21 @@ public class NewQuizTela1 extends javax.swing.JFrame {
         this.setVisible(false);
         new TopQuiz().setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void btImportarArquivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImportarArquivoActionPerformed
+        if(evt.getSource() == btImportarArquivo){
+            JFileChooser arquivo = new JFileChooser();
+            arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            int i = arquivo.showOpenDialog(null);
+
+            if(i == JFileChooser.APPROVE_OPTION){
+                File caminhoArquivo = new File(arquivo.getSelectedFile().getAbsolutePath());
+                System.out.println(caminhoArquivo);
+            } else {
+                System.out.println("");
+            }
+        }
+    }//GEN-LAST:event_btImportarArquivoActionPerformed
 
     /**
      * @param args the command line arguments

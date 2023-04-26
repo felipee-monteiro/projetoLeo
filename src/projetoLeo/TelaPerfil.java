@@ -70,7 +70,7 @@ public class TelaPerfil extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         jLabel6.setText("12 Quizzes completados");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel8.setText("Conquistas");
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));

@@ -221,7 +221,7 @@
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="24" style="3"/>
+                  <Font name="Segoe UI Light" size="24" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Conquistas"/>
               </Properties>
