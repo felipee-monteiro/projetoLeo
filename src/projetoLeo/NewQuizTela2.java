@@ -1,10 +1,11 @@
 package projetoLeo;
 
+import javax.swing.UIManager;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author gabri
@@ -145,7 +146,6 @@ public class NewQuizTela2 extends javax.swing.JFrame {
         btFinalizar.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         btFinalizar.setForeground(new java.awt.Color(255, 255, 255));
         btFinalizar.setText("Finalizar");
-        btFinalizar.setMinimumSize(new java.awt.Dimension(76, 27));
 
         btAdcPergunta.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         btAdcPergunta.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,7 +163,7 @@ public class NewQuizTela2 extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btFinalizar)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -226,7 +226,7 @@ public class NewQuizTela2 extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(btAdcPergunta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btFinalizar)
                 .addGap(15, 15, 15))
         );
 
@@ -285,7 +285,7 @@ public class NewQuizTela2 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(408, 408, 408)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(407, Short.MAX_VALUE))
+                .addContainerGap(401, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,30 +331,15 @@ public class NewQuizTela2 extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewQuizTela2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewQuizTela2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewQuizTela2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewQuizTela2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        
+        String[] questions = {""};
 
-        /* Create and display the form */
+        try {
+            UIManager.setLookAndFeel("com.formdev.flatlaf.themes.FlatMacLightLaf");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new NewQuizTela2().setVisible(true);

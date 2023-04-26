@@ -91,7 +91,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="408" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="407" max="32767" attributes="0"/>
+              <EmptySpace pref="401" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -418,9 +418,6 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Finalizar"/>
-            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[76, 27]"/>
-            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btAdcPergunta">
