@@ -9,6 +9,7 @@ package projetoLeo;
  *
  * @author gugav
  */
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 public class TelaQuiz extends javax.swing.JFrame {
@@ -38,18 +39,18 @@ public class TelaQuiz extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        azul = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
+        pedro = new javax.swing.JRadioButton();
         jRadioButton8 = new javax.swing.JRadioButton();
         jRadioButton6 = new javax.swing.JRadioButton();
         jRadioButton5 = new javax.swing.JRadioButton();
         jRadioButton10 = new javax.swing.JRadioButton();
         jRadioButton11 = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
+        slipknot = new javax.swing.JRadioButton();
         jRadioButton12 = new javax.swing.JRadioButton();
-        jRadioButton16 = new javax.swing.JRadioButton();
+        brasil = new javax.swing.JRadioButton();
         jRadioButton15 = new javax.swing.JRadioButton();
         jRadioButton13 = new javax.swing.JRadioButton();
         jRadioButton14 = new javax.swing.JRadioButton();
@@ -71,11 +72,11 @@ public class TelaQuiz extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButton4);
         jRadioButton4.setText("Branco");
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Azul");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(azul);
+        azul.setText("Azul");
+        azul.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                azulActionPerformed(evt);
             }
         });
 
@@ -95,8 +96,8 @@ public class TelaQuiz extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup3.add(jRadioButton7);
-        jRadioButton7.setText("Pedro Oliveira");
+        buttonGroup3.add(pedro);
+        pedro.setText("Pedro Oliveira");
 
         buttonGroup3.add(jRadioButton8);
         jRadioButton8.setText("Gustavo Vieira");
@@ -118,17 +119,17 @@ public class TelaQuiz extends javax.swing.JFrame {
         buttonGroup5.add(jRadioButton11);
         jRadioButton11.setText("Limão com mel");
 
-        buttonGroup5.add(jRadioButton9);
-        jRadioButton9.setText("Slipknot");
+        buttonGroup5.add(slipknot);
+        slipknot.setText("Slipknot");
 
         buttonGroup5.add(jRadioButton12);
         jRadioButton12.setText("Calcinha preta");
 
-        buttonGroup2.add(jRadioButton16);
-        jRadioButton16.setText("Brasil");
-        jRadioButton16.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup2.add(brasil);
+        brasil.setText("Brasil");
+        brasil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton16ActionPerformed(evt);
+                brasilActionPerformed(evt);
             }
         });
 
@@ -143,9 +144,14 @@ public class TelaQuiz extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(0, 102, 255));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Fim");
+        jButton1.setText("Responder");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.setMinimumSize(new java.awt.Dimension(80, 30));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jLabel2.setText("Qual é a cor do cavalo branco de Napoleão ?");
@@ -171,7 +177,7 @@ public class TelaQuiz extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton16)
+                                    .addComponent(brasil)
                                     .addComponent(jRadioButton15))
                                 .addGap(50, 50, 50)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,7 +191,7 @@ public class TelaQuiz extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton1)
+                                    .addComponent(azul)
                                     .addComponent(jRadioButton3))
                                 .addGap(76, 76, 76)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +202,7 @@ public class TelaQuiz extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton7)
+                                    .addComponent(pedro)
                                     .addComponent(jRadioButton8))
                                 .addGap(29, 29, 29)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +216,7 @@ public class TelaQuiz extends javax.swing.JFrame {
                                         .addComponent(jRadioButton11))
                                     .addGap(20, 20, 20)
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jRadioButton9)
+                                        .addComponent(slipknot)
                                         .addComponent(jRadioButton12)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -224,7 +230,7 @@ public class TelaQuiz extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
+                        .addComponent(azul)
                         .addGap(20, 20, 20)
                         .addComponent(jRadioButton3))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -235,7 +241,7 @@ public class TelaQuiz extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton7)
+                    .addComponent(pedro)
                     .addComponent(jRadioButton6))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -249,7 +255,7 @@ public class TelaQuiz extends javax.swing.JFrame {
                     .addComponent(jRadioButton12))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton9)
+                    .addComponent(slipknot)
                     .addComponent(jRadioButton11))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -258,7 +264,7 @@ public class TelaQuiz extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(27, 27, 27)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton16)
+                            .addComponent(brasil)
                             .addComponent(jRadioButton13))
                         .addGap(20, 20, 20)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -306,9 +312,9 @@ public class TelaQuiz extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void azulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_azulActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_azulActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
         // TODO add your handling code here:
@@ -322,9 +328,22 @@ public class TelaQuiz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton10ActionPerformed
 
-    private void jRadioButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton16ActionPerformed
+    private void brasilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brasilActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton16ActionPerformed
+    }//GEN-LAST:event_brasilActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int pontos = 0;
+        if (azul.isSelected() == true){pontos++;}
+        if (brasil.isSelected() == true){pontos++;}
+        if (slipknot.isSelected() == true){pontos++;}
+        if (pedro.isSelected() == true){pontos++;}
+        JOptionPane.showMessageDialog(rootPane, "Você acertou: " + pontos);
+        TopQuiz topQuiz = new TopQuiz();
+        this.setVisible(false);
+        topQuiz.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -345,6 +364,8 @@ public class TelaQuiz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton azul;
+    private javax.swing.JRadioButton brasil;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
@@ -358,21 +379,19 @@ public class TelaQuiz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JRadioButton jRadioButton11;
     private javax.swing.JRadioButton jRadioButton12;
     private javax.swing.JRadioButton jRadioButton13;
     private javax.swing.JRadioButton jRadioButton14;
     private javax.swing.JRadioButton jRadioButton15;
-    private javax.swing.JRadioButton jRadioButton16;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JRadioButton pedro;
+    private javax.swing.JRadioButton slipknot;
     // End of variables declaration//GEN-END:variables
 }
