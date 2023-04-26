@@ -1,4 +1,5 @@
 package projetoLeo;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 /*
@@ -72,6 +73,11 @@ public class NewQuizTela2 extends javax.swing.JFrame {
         btFinalizar.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         btFinalizar.setForeground(new java.awt.Color(255, 255, 255));
         btFinalizar.setText("Finalizar");
+        btFinalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFinalizarActionPerformed(evt);
+            }
+        });
 
         btAdcPergunta.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         btAdcPergunta.setForeground(new java.awt.Color(255, 255, 255));
@@ -276,6 +282,15 @@ public class NewQuizTela2 extends javax.swing.JFrame {
     private void btAdcPerguntaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAdcPerguntaMouseExited
         btAdcPergunta.setToolTipText("");
     }//GEN-LAST:event_btAdcPerguntaMouseExited
+
+    private void btFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinalizarActionPerformed
+        if (/*todas as informações estiverem corretamente preenchidas*/) {
+            this.setVisible(false);
+           new TelaQuiz().setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Preencha os campos vazios.");
+        }
+    }//GEN-LAST:event_btFinalizarActionPerformed
 
     /**
      * @param args the command line arguments

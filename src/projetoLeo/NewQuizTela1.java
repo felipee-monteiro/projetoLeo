@@ -349,11 +349,9 @@ public class NewQuizTela1 extends javax.swing.JFrame {
     }//GEN-LAST:event_comboTemporizadorActionPerformed
 
     private void btAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAvancarActionPerformed
-        this.setVisible(false);
-        // new NewQuizTela2().setVisible(true);
         if (/*todas as informações estiverem corretamente preenchidas*/) {
             this.setVisible(false);
-            new TelaQuiz().setVisible(true);
+           new NewQuizTela2().setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Preencha todas as informações.");
         }
