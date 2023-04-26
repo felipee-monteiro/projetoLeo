@@ -12,9 +12,6 @@ import javax.swing.UIManager;
  */
 public class Categoria extends javax.swing.JFrame {
 
-    /**
-     * Creates new form BuscaCategoria
-     */
     public Categoria() {
         initComponents();
     }
@@ -31,19 +28,18 @@ public class Categoria extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        geo = new javax.swing.JButton();
+        mat = new javax.swing.JButton();
+        cienc = new javax.swing.JButton();
+        music = new javax.swing.JButton();
+        cine = new javax.swing.JButton();
+        esp = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
 
@@ -58,87 +54,114 @@ public class Categoria extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Categorias");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetoLeo/img/cienc.jpg"))); // NOI18N
         jLabel2.setPreferredSize(new java.awt.Dimension(220, 180));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel3.setText("Geografia");
-        jLabel3.setToolTipText("");
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetoLeo/img/esporte.jpg"))); // NOI18N
         jLabel4.setPreferredSize(new java.awt.Dimension(220, 180));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetoLeo/img/mat.jpg"))); // NOI18N
         jLabel5.setPreferredSize(new java.awt.Dimension(220, 180));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetoLeo/img/geo.jpg"))); // NOI18N
         jLabel6.setPreferredSize(new java.awt.Dimension(220, 180));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetoLeo/img/cine.jpg"))); // NOI18N
         jLabel7.setPreferredSize(new java.awt.Dimension(220, 180));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetoLeo/img/musica.jpg"))); // NOI18N
         jLabel8.setPreferredSize(new java.awt.Dimension(220, 180));
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel9.setText("Ciências");
-        jLabel9.setToolTipText("");
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel10.setText("Cinema");
-        jLabel10.setToolTipText("");
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel11.setText("Matemática");
-        jLabel11.setToolTipText("");
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel12.setText("Música");
-        jLabel12.setToolTipText("");
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel13.setText("Esporte");
-        jLabel13.setToolTipText("");
 
         jButton1.setBackground(new java.awt.Color(0, 102, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Voltar");
         jButton1.setMinimumSize(new java.awt.Dimension(76, 27));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(0, 102, 255));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Sair");
-        jButton2.setMinimumSize(new java.awt.Dimension(76, 27));
+        geo.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        geo.setText("Geografia");
+        geo.setBorder(null);
+        geo.setBorderPainted(false);
+        geo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                geoActionPerformed(evt);
+            }
+        });
+
+        mat.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        mat.setText("Matemática");
+        mat.setBorder(null);
+        mat.setBorderPainted(false);
+        mat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                matActionPerformed(evt);
+            }
+        });
+
+        cienc.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        cienc.setText("Ciências");
+        cienc.setBorder(null);
+        cienc.setBorderPainted(false);
+        cienc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ciencActionPerformed(evt);
+            }
+        });
+
+        music.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        music.setText("Música");
+        music.setBorder(null);
+        music.setBorderPainted(false);
+        music.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                musicActionPerformed(evt);
+            }
+        });
+
+        cine.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        cine.setText("Cinemas");
+        cine.setBorder(null);
+        cine.setBorderPainted(false);
+        cine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cineActionPerformed(evt);
+            }
+        });
+
+        esp.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        esp.setText("Esportes");
+        esp.setBorder(null);
+        esp.setBorderPainted(false);
+        esp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                espActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(jLabel3)
-                .addGap(295, 295, 295)
-                .addComponent(jLabel9)
+                .addGap(159, 159, 159)
+                .addComponent(geo, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(273, 273, 273)
+                .addComponent(cienc, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel11)
-                .addGap(134, 134, 134))
+                .addComponent(mat, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(157, 157, 157))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(jLabel10)
+                .addGap(158, 158, 158)
+                .addComponent(cine, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(279, 279, 279)
+                .addComponent(esp, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel13)
-                .addGap(359, 359, 359)
-                .addComponent(jLabel12)
-                .addGap(155, 155, 155))
+                .addComponent(music, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(136, 136, 136))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -173,9 +196,9 @@ public class Categoria extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(78, 78, 78)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel11))
+                    .addComponent(geo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mat, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cienc, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -183,19 +206,17 @@ public class Categoria extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel10))
+                    .addComponent(music, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cine, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(esp, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27))
+                .addGap(46, 46, 46)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
         jMenu1.setText("Menu");
@@ -221,6 +242,50 @@ public class Categoria extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void geoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_geoActionPerformed
+        CategoriaRender cat = new  CategoriaRender(geo.getText());
+         this.setVisible(false);
+         cat.setVisible(true);
+    }//GEN-LAST:event_geoActionPerformed
+
+    private void matActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matActionPerformed
+    CategoriaRender cat = new  CategoriaRender(mat.getText());
+         this.setVisible(false);
+         cat.setVisible(true);
+    }//GEN-LAST:event_matActionPerformed
+
+    private void ciencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ciencActionPerformed
+        // TODO add your handling code here:
+        CategoriaRender cat = new  CategoriaRender(cienc.getText());
+         this.setVisible(false);
+         cat.setVisible(true);
+    }//GEN-LAST:event_ciencActionPerformed
+
+    private void musicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicActionPerformed
+        CategoriaRender cat = new  CategoriaRender(music.getText());
+         this.setVisible(false);
+         cat.setVisible(true);
+    }//GEN-LAST:event_musicActionPerformed
+
+    private void cineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cineActionPerformed
+       CategoriaRender cat = new  CategoriaRender(cine.getText());
+         this.setVisible(false);
+         cat.setVisible(true);
+    }//GEN-LAST:event_cineActionPerformed
+
+    private void espActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_espActionPerformed
+        CategoriaRender cat = new  CategoriaRender(esp.getText());
+         this.setVisible(false);
+         cat.setVisible(true);
+    }//GEN-LAST:event_espActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        TopQuiz topQuiz = new TopQuiz();
+        this.setVisible(false);
+        topQuiz.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,23 +328,22 @@ public class Categoria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cienc;
+    private javax.swing.JButton cine;
+    private javax.swing.JButton esp;
+    private javax.swing.JButton geo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton mat;
+    private javax.swing.JButton music;
     // End of variables declaration//GEN-END:variables
 }
