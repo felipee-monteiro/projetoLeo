@@ -1,6 +1,9 @@
 package projetoLeo;
+
+import javax.swing.InputVerifier;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import validators.FieldValidator;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -33,7 +36,7 @@ public class NewQuizTela2 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblTituloNQ2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        questionOne = new javax.swing.JTextField();
         btFinalizar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
@@ -79,9 +82,8 @@ public class NewQuizTela2 extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setText("Pergunta 1:");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField1.setText("Digite a sua pergunta aqui");
+        questionOne.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        questionOne.setForeground(new java.awt.Color(0, 0, 0));
 
         btFinalizar.setBackground(new java.awt.Color(0, 102, 255));
         btFinalizar.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
@@ -187,7 +189,8 @@ public class NewQuizTela2 extends javax.swing.JFrame {
                             .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(questionOne))
                         .addGap(20, 20, 20))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,8 +222,8 @@ public class NewQuizTela2 extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
                 .addGap(5, 5, 5)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(questionOne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton1)
@@ -358,11 +361,12 @@ public class NewQuizTela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinalizarActionPerformed
-        if (/*todas as informações estiverem corretamente preenchidas*/) {
+
+        InputVerifier qV = new FieldValidator(questionOne, "Pergunta Obrigatória.");
+
+        if (qV.verify(questionOne)) {
             this.setVisible(false);
-           new TelaQuiz().setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Preencha os campos vazios.");
+            new TelaQuiz().setVisible(true);
         }
     }//GEN-LAST:event_btFinalizarActionPerformed
 
@@ -370,7 +374,7 @@ public class NewQuizTela2 extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         String[] questions = {""};
 
         try {
@@ -409,16 +413,9 @@ public class NewQuizTela2 extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblTituloNQ2;
     private javax.swing.JMenu menuInicio2;
     private javax.swing.JMenuItem myProfile1;
+    private javax.swing.JTextField questionOne;
     // End of variables declaration//GEN-END:variables
 }

@@ -302,14 +302,16 @@ public class Register extends javax.swing.JFrame {
     private void createAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountActionPerformed
 
         email.setInputVerifier(new EmailValidator(email));
-        email.getInputVerifier().verify(email);
-        user.setInputVerifier(new PassValidator(user));
-        user.getInputVerifier().verify(user);
-        pass.setInputVerifier(new PassValidator(pass));
-        pass.getInputVerifier().verify(pass);
-
-        //this.setVisible(false);
-        //new TopQuiz().setVisible(true);s
+        boolean emailB = email.getInputVerifier().verify(email);
+        user.setInputVerifier(new FieldValidator(user, "Usuário Obrigatório."));
+        boolean userB = user.getInputVerifier().verify(user);
+        pass.setInputVerifier(new FieldValidator(pass, "E-mail Obrigatório"));
+        boolean passB = pass.getInputVerifier().verify(pass);
+        
+        if (emailB && userB && passB) {
+            this.setVisible(false);
+            new TopQuiz().setVisible(true);
+        }
     }//GEN-LAST:event_createAccountActionPerformed
 
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
