@@ -2,19 +2,20 @@ package projetoLeo;
 
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-import validators.PassValidator;
+import validators.FieldValidator;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 
 /**
  *
  * @author Pedro
  */
 public class ResetSenha extends javax.swing.JFrame {
-    
+
     int senha = 1234;
+
     public ResetSenha() {
         initComponents();
     }
@@ -32,7 +33,7 @@ public class ResetSenha extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        passAt = new javax.swing.JTextField();
+        actualPass = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         newPass = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -57,7 +58,7 @@ public class ResetSenha extends javax.swing.JFrame {
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel1.setText("Esqueceu Senha");
+        jLabel1.setText("Alterar Senha");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -83,7 +84,7 @@ public class ResetSenha extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(passAt, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                    .addComponent(actualPass, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
                     .addComponent(newPass)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,7 +112,7 @@ public class ResetSenha extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passAt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(actualPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -268,18 +269,16 @@ public class ResetSenha extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(senha == 1234){
-            JOptionPane.showMessageDialog(rootPane, "Senha incorreta.");
-        }
-        newPass.setInputVerifier(new PassValidator(newPass));
+        actualPass.setInputVerifier(new FieldValidator(actualPass, "Senha Obrigatória"));
+        newPass.setInputVerifier(new FieldValidator(newPass, "Nova senha obrigatória."));
         boolean pass1 = newPass.getInputVerifier().verify(newPass);
-        confirmPass.setInputVerifier(new PassValidator(confirmPass));
+        confirmPass.setInputVerifier(new FieldValidator(confirmPass, "Confimação de senha Obrigatória."));
         boolean pass2 = confirmPass.getInputVerifier().verify(confirmPass);
-        if(pass1 == false && pass2 == false){
-        this.setVisible(false);
-        new TopQuiz().setVisible(true);
+        boolean pass3 = actualPass.getInputVerifier().verify(actualPass);
+        if (pass1 && pass2 && pass3) {
+            this.setVisible(false);
+            new TopQuiz().setVisible(true);
         }
-            
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -327,6 +326,7 @@ public class ResetSenha extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField actualPass;
     private javax.swing.JPasswordField confirmPass;
     private javax.swing.JMenuItem createQuizMenu2;
     private javax.swing.JButton jButton1;
@@ -347,6 +347,5 @@ public class ResetSenha extends javax.swing.JFrame {
     private javax.swing.JMenu menuInicio2;
     private javax.swing.JMenuItem myProfile1;
     private javax.swing.JTextField newPass;
-    private javax.swing.JTextField passAt;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,9 +1,12 @@
 package projetoLeo;
 
 import java.io.File;
+import javax.swing.InputVerifier;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+
+import validators.FieldValidator;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -15,10 +18,7 @@ import javax.swing.UIManager;
  * @author gabri
  */
 public class NewQuizTela1 extends javax.swing.JFrame {
-
-    /**
-     * Creates new form NewQuiz
-     */
+            
     public NewQuizTela1() {
         initComponents();
     }
@@ -58,12 +58,12 @@ public class NewQuizTela1 extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         comboCategoria = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
+        description = new javax.swing.JTextField();
+        link = new javax.swing.JTextField();
         comboTemporizador = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        tip = new javax.swing.JTextField();
+        tags = new javax.swing.JTextField();
         btImportarArquivo = new javax.swing.JButton();
         btAvancar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -158,15 +158,14 @@ public class NewQuizTela1 extends javax.swing.JFrame {
         comboCategoria.setForeground(new java.awt.Color(51, 51, 51));
         comboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Astrologia", "Biologia", "Ciência", "Diversos", "Entretenimento", "Esportes", "Exatas", "Gaming", "Geografia", "História", "Linguagens", "Música", "Política", "Tecnologia" }));
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(51, 51, 51));
+        name.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        name.setForeground(new java.awt.Color(51, 51, 51));
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(51, 51, 51));
+        description.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        description.setForeground(new java.awt.Color(51, 51, 51));
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(51, 51, 51));
-        jTextField4.setText("www.quizgenerator.com.br/nomedolink");
+        link.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        link.setForeground(new java.awt.Color(51, 51, 51));
 
         comboTemporizador.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         comboTemporizador.setForeground(new java.awt.Color(51, 51, 51));
@@ -177,11 +176,11 @@ public class NewQuizTela1 extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(51, 51, 51));
+        tip.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        tip.setForeground(new java.awt.Color(51, 51, 51));
 
-        jTextField5.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(51, 51, 51));
+        tags.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        tags.setForeground(new java.awt.Color(51, 51, 51));
 
         btImportarArquivo.setBackground(new java.awt.Color(204, 204, 204));
         btImportarArquivo.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
@@ -223,13 +222,13 @@ public class NewQuizTela1 extends javax.swing.JFrame {
                     .addComponent(btAvancar)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(comboCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btImportarArquivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(comboTemporizador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField3)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
-                        .addComponent(jTextField5)
-                        .addComponent(jTextField1)))
+                        .addComponent(description)
+                        .addComponent(link, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                        .addComponent(tags)
+                        .addComponent(tip)))
                 .addContainerGap(19, Short.MAX_VALUE))
             .addComponent(lblTituloNQ1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -244,15 +243,15 @@ public class NewQuizTela1 extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField2)
+                    .addComponent(name)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField3)
+                    .addComponent(description)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField4)
+                    .addComponent(link)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -260,11 +259,11 @@ public class NewQuizTela1 extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
+                    .addComponent(tip)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField5)
+                    .addComponent(tags)
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -349,12 +348,23 @@ public class NewQuizTela1 extends javax.swing.JFrame {
     }//GEN-LAST:event_comboTemporizadorActionPerformed
 
     private void btAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAvancarActionPerformed
-        if (/*todas as informações estiverem corretamente preenchidas*/) {
-            this.setVisible(false);
-           new NewQuizTela2().setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Preencha todas as informações.");
-        }
+        
+         InputVerifier nameV = new FieldValidator(name, "Nome Obrigatório");
+         InputVerifier descV = new FieldValidator(description, "Descrição Obrigatória.");
+         InputVerifier linkV = new FieldValidator(link, "Link Obrigatório");
+         InputVerifier tipV = new FieldValidator(tip, "Dica Obrigatória");
+         InputVerifier tagsV = new FieldValidator(tags, "Tags Obrigatórias.");
+         
+         boolean nameB = nameV.verify(name);
+         boolean descB = descV.verify(description);
+         boolean linkB = linkV.verify(link);
+         boolean tipB = tipV.verify(tip);
+         boolean tagsB = tagsV.verify(tags);
+         
+         if (nameB && descB && linkB && tipB && tagsB) {
+             this.setVisible(false);
+             new NewQuizTela2().setVisible(true);
+         }
     }//GEN-LAST:event_btAvancarActionPerformed
 
     private void createQuizMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createQuizMenu2ActionPerformed
@@ -428,6 +438,7 @@ public class NewQuizTela1 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboCategoria;
     private javax.swing.JComboBox<String> comboTemporizador;
     private javax.swing.JMenuItem createQuizMenu2;
+    private javax.swing.JTextField description;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -456,13 +467,12 @@ public class NewQuizTela1 extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JLabel lblTituloNQ1;
+    private javax.swing.JTextField link;
     private javax.swing.JMenu menuInicio2;
     private javax.swing.JMenuItem myProfile1;
+    private javax.swing.JTextField name;
+    private javax.swing.JTextField tags;
+    private javax.swing.JTextField tip;
     // End of variables declaration//GEN-END:variables
 }
