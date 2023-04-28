@@ -53,7 +53,7 @@ Esse projeto está sob a licença MIT.
 
 ## :octocat:	Desenvolvedores | Contribuintes
 
-| [<img src="./src/projetoLeo/img/ftFelipe.jpg" width=115><br><sub>Felipe Monteiro</sub>](https://github.com/felipee-monteiro) |  [<img src="./src/projetoLeo/img/ftPedro.jpg" width=115><br><sub>Pedro Duarte</sub>](https://github.com/pedrodrtoliveira) |  [<img src="./src/projetoLeo/img/ftGabi.jpg" width=115><br><sub>Gabriela Cavalcante</sub>](https://github.com/gabrielacvcnt) |  [<img src="./src/projetoLeo/img/ftGustavo.jpg" width=115><br><sub>Gustavo Vieira</sub>](https://github.com/GugaLeite) |
+| [<img src="https://avatars.githubusercontent.com/u/62250734?v=4" width=115><br><sub>Felipe Monteiro</sub>](https://github.com/felipee-monteiro) |  [<img src="https://avatars.githubusercontent.com/u/111243135?v=4" width=115><br><sub>Pedro Duarte</sub>](https://github.com/pedrodrtoliveira) |  [<img src="https://avatars.githubusercontent.com/u/67665550?v=4" width=115><br><sub>Gabriela Cavalcante</sub>](https://github.com/gabrielacvcnt) |  [<img src="https://avatars.githubusercontent.com/u/112275279?v=4" width=115><br><sub>Gustavo Vieira</sub>](https://github.com/GugaLeite) |
 | :---: | :---: | :---: 
 ---
 
