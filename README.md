@@ -1,4 +1,4 @@
-<h1 align="center">Quiz Generator</h1>
+<h1 align="center">Quiz Generator.</h1>
 
 <p align="center">
 O Quiz Generator é um programa de entretenimento, um jogo de questionários que tem como objetivo fazer uma avaliação dos conhecimentos dos jogadores sobre determinado assunto.

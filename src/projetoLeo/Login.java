@@ -3,6 +3,8 @@ package projetoLeo;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import validators.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -200,7 +202,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         email.setInputVerifier(new EmailValidator(email));
-        pass.setInputVerifier(new PassValidator(pass));
+        pass.setInputVerifier(new FieldValidator(pass, "Senha Incorreta"));
         email.getInputVerifier().verify(email);
         pass.getInputVerifier().verify(pass);
         
