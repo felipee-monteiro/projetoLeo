@@ -44,16 +44,9 @@ public class NewQuizTela2 extends javax.swing.JFrame {
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jRadioButton9 = new javax.swing.JRadioButton();
         jRadioButton10 = new javax.swing.JRadioButton();
         jRadioButton11 = new javax.swing.JRadioButton();
         jRadioButton12 = new javax.swing.JRadioButton();
@@ -123,16 +116,8 @@ public class NewQuizTela2 extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
         jLabel3.setText("Pergunta 2:");
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField2.setText("jTextField2");
-
         jLabel4.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
         jLabel4.setText("Resposta 2:");
-
-        buttonGroup2.add(jRadioButton5);
-        jRadioButton5.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        jRadioButton5.setText("Alternativa 1");
 
         buttonGroup2.add(jRadioButton6);
         jRadioButton6.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
