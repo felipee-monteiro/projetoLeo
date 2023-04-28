@@ -11,13 +11,13 @@ import javax.swing.UIManager;
  * @author Pedro
  */
 public class TopQuiz extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form TopQuiz
      */
     public TopQuiz() {
         initComponents();
-        
+
     }
 
     /**
@@ -481,24 +481,18 @@ public class TopQuiz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-        TelaQuiz quizScreen = new TelaQuiz();
         this.setVisible(false);
-        quizScreen.setVisible(true);
+        new BemVindo().setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        // TODO add your handling code here:
-        TelaQuiz quizScreen = new TelaQuiz();
         this.setVisible(false);
-        quizScreen.setVisible(true);
+        new BemVindo().setVisible(true);
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        // TODO add your handling code here:
-        TelaQuiz quizScreen = new TelaQuiz();
         this.setVisible(false);
-        quizScreen.setVisible(true);
+        new BemVindo().setVisible(true);
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed

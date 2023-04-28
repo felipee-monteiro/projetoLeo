@@ -92,9 +92,8 @@ public class BemVindo extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        Login lg = new Login();
         this.setVisible(false);
-        lg.setVisible(true);
+        new TelaQuiz().setVisible(true);
     }                                        
 
     /**
