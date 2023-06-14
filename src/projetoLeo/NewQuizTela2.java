@@ -119,10 +119,6 @@ public class NewQuizTela2 extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
         jLabel4.setText("Resposta 2:");
 
-        buttonGroup2.add(jRadioButton6);
-        jRadioButton6.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        jRadioButton6.setText("Alternativa 2");
-
         buttonGroup2.add(jRadioButton7);
         jRadioButton7.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         jRadioButton7.setText("Alternativa 3");
@@ -188,7 +184,6 @@ public class NewQuizTela2 extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jRadioButton5)
                                 .addComponent(jRadioButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jRadioButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jRadioButton8)
                                 .addComponent(jLabel4))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -227,7 +222,6 @@ public class NewQuizTela2 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
