@@ -15,7 +15,7 @@ public class Usuario implements Model<Usuario> {
 
     public Usuario() {
     }
-    
+
     public Usuario(Connection cnx) {
         this.cnx = cnx;
     }
@@ -87,6 +87,37 @@ public class Usuario implements Model<Usuario> {
         return user;
     }
 
+    public Usuario findByEmail(String email) {
+        String query = "SELECT * FROM Usuario WHERE email = '" + email + "'";
+        Usuario user = new Usuario();
+
+        try {
+            Statement st = this.cnx.createStatement();
+            ResultSet result = st.executeQuery(query);
+
+            while (result.next()) {
+                int user_id = result.getInt("id_usuario");
+                String created_at = result.getString("created_at");
+                String nome = result.getString("nome");
+                String emailUser = result.getString("email");
+                String senha = result.getString("senha");
+                int idade = result.getInt("idade");
+
+                user.setId(user_id);
+                user.setNome(nome);
+                user.setEmail(emailUser);
+                user.setIdade(idade);
+                user.setSenha(senha);
+                user.setCreated_at(created_at);
+            }
+        } catch (SQLException e) {
+            System.out.println("ERRO DURANTE TENTATIVA DE RECUPERAÇÃO DE DADOS: " + e.getMessage());
+            System.exit(1);
+        }
+
+        return user;
+    }
+
     @Override
     public ArrayList findAll() {
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
@@ -111,6 +142,10 @@ public class Usuario implements Model<Usuario> {
             System.exit(1);
         }
         return usuarios;
+    }
+
+    public void setCnx(Connection cnx) {
+        this.cnx = cnx;
     }
 
     @Override

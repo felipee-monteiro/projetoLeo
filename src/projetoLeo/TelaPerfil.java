@@ -1,19 +1,22 @@
 package projetoLeo;
 
+import db.Conexao;
 import db.models.Usuario;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author gugav
  */
 import javax.swing.UIManager;
+
 public class TelaPerfil extends javax.swing.JFrame {
-    private Usuario user;
+
+    private static Usuario user;
 
     /**
      * Creates new form TelaPerfil3
@@ -21,11 +24,12 @@ public class TelaPerfil extends javax.swing.JFrame {
     public TelaPerfil() {
         initComponents();
     }
-    
-    public TelaPerfil(Usuario user) {
+
+    public void setUser(Usuario user) {
         this.user = user;
-        System.out.println(user.getId());
-        initComponents();
+        nome.setText(user.getNome());
+        idade.setText(", " + String.valueOf(user.getIdade()));
+        membro.setText("Membro desde " + user.getCreated_at());
     }
 
     /**
@@ -41,10 +45,10 @@ public class TelaPerfil extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        nome = new javax.swing.JLabel();
+        idade = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        membro = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -52,6 +56,7 @@ public class TelaPerfil extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
+        apagarrConta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,19 +67,19 @@ public class TelaPerfil extends javax.swing.JFrame {
 
         jLabel1.setToolTipText("");
 
-        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel4.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel4.setText("Marivaldo Santos,");
+        nome.setBackground(new java.awt.Color(204, 204, 204));
+        nome.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        nome.setText("Visitante,");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel3.setText("65");
+        idade.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        idade.setText("0");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel2.setText("10 Quizzes criados");
 
-        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel5.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel5.setText("Membro desde 2023");
+        membro.setBackground(new java.awt.Color(204, 204, 204));
+        membro.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        membro.setText("Membro desde 2023");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         jLabel6.setText("12 Quizzes completados");
@@ -105,6 +110,13 @@ public class TelaPerfil extends javax.swing.JFrame {
             }
         });
 
+        apagarrConta.setText("Apagar Conta");
+        apagarrConta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apagarrContaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -121,12 +133,13 @@ public class TelaPerfil extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel3))
+                                        .addComponent(nome)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(idade))
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel6)
-                                    .addComponent(jLabel5))
+                                    .addComponent(membro)
+                                    .addComponent(apagarrConta))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -145,18 +158,20 @@ public class TelaPerfil extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel9)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(101, 101, 101)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
+                            .addComponent(nome)
+                            .addComponent(idade))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5))
+                        .addComponent(membro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(apagarrConta))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(65, 65, 65)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -179,7 +194,7 @@ public class TelaPerfil extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(299, Short.MAX_VALUE)
+                .addContainerGap(334, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(298, 298, 298))
         );
@@ -213,43 +228,35 @@ public class TelaPerfil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
         TopQuiz topQuiz = new TopQuiz();
         this.setVisible(false);
         topQuiz.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-       try {
-            UIManager.setLookAndFeel("com.formdev.flatlaf.themes.FlatMacLightLaf");
- } catch (Exception ex) {
-            ex.printStackTrace();
-  }
-        //</editor-fold>
+    private void apagarrContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarrContaActionPerformed
+       this.user.setCnx(new Conexao().abrirConexao());
+        if (this.user.delete(this.user.getId())) {
+           JOptionPane.showMessageDialog(null, "Conta deletada com sucesso !");
+           return;
+       }
+    }//GEN-LAST:event_apagarrContaActionPerformed
 
-        /* Create and display the form */
+    public static void main(String args[]) {
+        Usuario usuario = user;
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPerfil().setVisible(true);
+                TelaPerfil p = new TelaPerfil();
+                p.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton apagarrConta;
+    private javax.swing.JLabel idade;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -259,5 +266,7 @@ public class TelaPerfil extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel membro;
+    private static javax.swing.JLabel nome;
     // End of variables declaration//GEN-END:variables
 }

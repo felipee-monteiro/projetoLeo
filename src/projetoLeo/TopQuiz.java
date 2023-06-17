@@ -23,12 +23,11 @@ public class TopQuiz extends javax.swing.JFrame {
      */
     private Usuario user;
 
-    public TopQuiz() {
-        initComponents();
+    public void setUser(Usuario user) {
+        this.user = user;
     }
 
-    public TopQuiz(Usuario user) {
-        this.user = user;
+    public TopQuiz() {
         initComponents();
     }
 
@@ -255,24 +254,21 @@ public class TopQuiz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-        TelaPerfil personalScreen = new TelaPerfil(this.user);
+        TelaPerfil personalScreen = new TelaPerfil();
         this.setVisible(false);
         personalScreen.setVisible(true);
+        personalScreen.setUser(this.user);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new Login().setVisible(true);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarActionPerformed
-
        this.popular();
     }//GEN-LAST:event_listarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         try {
             UIManager.setLookAndFeel("com.formdev.flatlaf.themes.FlatMacLightLaf");

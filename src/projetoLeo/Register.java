@@ -345,10 +345,14 @@ public class Register extends javax.swing.JFrame {
 
             if (!userClass.insert()) {
                 JOptionPane.showMessageDialog(null, "Ocorreu um erro durante o cadastro. Tente novamente mais tarde!");
+                return;
             }
-            
+
             this.setVisible(false);
-            new TopQuiz().setVisible(true);;
+            TopQuiz q = new TopQuiz();
+            q.setUser(userClass.findByEmail(userClass.getEmail()));
+            q.setVisible(true);
+            q.popular();
         }
     }//GEN-LAST:event_createAccountActionPerformed
 
