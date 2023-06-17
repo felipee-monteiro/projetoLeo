@@ -217,10 +217,12 @@ public class Login extends javax.swing.JFrame {
 
             if (userLogged.getId() == 0) {
                 JOptionPane.showMessageDialog(null, "Usuário não existe.");
+                return;
             }
 
             this.setVisible(false);
-            TopQuiz q = new TopQuiz(userLogged);
+            TopQuiz q = new TopQuiz();
+            q.setUser(user.findOne(userLogged.getId()));
             q.setVisible(true);
             q.popular();
         }
