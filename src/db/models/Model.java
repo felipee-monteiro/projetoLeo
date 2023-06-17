@@ -7,7 +7,7 @@ package db.models;
 import java.util.ArrayList; 
 
 public interface Model<T> {
-    public void insert();
+    public boolean insert();
     public T findOne(int id);
     public ArrayList findAll();
     public boolean delete(int id);

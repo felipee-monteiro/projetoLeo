@@ -3,17 +3,17 @@ package projetoLeo;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import validators.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import java.sql.*;
+
+import db.Conexao;
+import db.models.Usuario;
 
 /**
  *
  * @author fm320
  */
 public class Login extends javax.swing.JFrame {
-    
-    private String userEmail = "teste@teste.com";
-    private String password = "12345";
 
     public Login() {
         initComponents();
@@ -205,12 +205,22 @@ public class Login extends javax.swing.JFrame {
         pass.setInputVerifier(new FieldValidator(pass, "Senha Incorreta"));
         email.getInputVerifier().verify(email);
         pass.getInputVerifier().verify(pass);
-        
-        if (email.getText().equals(this.userEmail)) {
+
+        if (email.getText().length() > 0 && pass.getPassword().toString().length() > 0) {
+            Connection cnx = new Conexao().abrirConexao();
+            Usuario user = new Usuario(cnx);
+
+            user.setEmail(email.getText());
+            user.setSenha(String.valueOf(pass.getPassword()));
+            
+            Usuario userLogged = user.login();
+
+            if (userLogged.getId() == 0) {
+                JOptionPane.showMessageDialog(null, "Usuário não existe.");
+            }
+            
             this.setVisible(false);
             new TopQuiz().setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Credenciais Incorretas.");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -218,7 +228,6 @@ public class Login extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-
         try {
             UIManager.setLookAndFeel("com.formdev.flatlaf.themes.FlatMacLightLaf");
         } catch (Exception ex) {

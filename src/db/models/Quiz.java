@@ -30,7 +30,7 @@ public class Quiz implements Model<Quiz> {
     }
 
     @Override
-    public void insert() {
+    public boolean insert() {
         try {
             PreparedStatement st = this.cnx.prepareStatement("insert into Quiz (quiz_categoria, quiz_nome, quiz_desc, quiz_dica, quiz_tag, quiz_data, fk_Usuario_id_usuario, quiz_id) values (?, ?, ?, ?, ?, ?, ?, ?)");
             st.setString(1, this.categoria);
@@ -42,9 +42,10 @@ public class Quiz implements Model<Quiz> {
             st.setInt(7, this.userId);
             st.setString(8, UUID.randomUUID().toString());
             st.execute();
+            return true;
         } catch (SQLException e) {
             System.out.println("ERRO AO INSERIR: " + e.getMessage());
-            System.exit(1);
+            return false;
         }
     }
 

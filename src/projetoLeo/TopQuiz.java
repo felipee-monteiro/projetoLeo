@@ -1,6 +1,7 @@
 package projetoLeo;
 
 import javax.swing.UIManager;
+import db.models.Usuario;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -15,9 +16,15 @@ public class TopQuiz extends javax.swing.JFrame {
     /**
      * Creates new form TopQuiz
      */
+    
+    private Usuario user;
+    
     public TopQuiz() {
         initComponents();
-
+    }
+    
+    public TopQuiz(Usuario user) {
+       this.user = user;
     }
 
     /**
@@ -448,7 +455,7 @@ public class TopQuiz extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         this.setVisible(false);
-        //new Categoria().setVisible(true);
+        new Categoria().setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void myProfile1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myProfile1ActionPerformed
