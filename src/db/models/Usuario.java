@@ -13,7 +13,12 @@ public class Usuario implements Model<Usuario> {
     private String nome;
     private Connection cnx;
 
-    public Usuario() {}
+    public Usuario() {
+    }
+    
+    public Usuario(Connection cnx) {
+        this.cnx = cnx;
+    }
 
     public Usuario(Connection cnx, String nome, String email, String senha, int idade) {
         this.nome = nome;
@@ -31,8 +36,11 @@ public class Usuario implements Model<Usuario> {
         this.created_at = created_at;
     }
 
+    /**
+     *
+     */
     @Override
-    public void insert() {
+    public boolean insert() {
         try {
             PreparedStatement st = this.cnx.prepareStatement("insert into Usuario(nome, email, senha, idade) values (?, ?, ?, ?)");
             st.setString(1, this.nome);
@@ -40,9 +48,10 @@ public class Usuario implements Model<Usuario> {
             st.setString(3, this.senha);
             st.setInt(4, this.idade);
             st.execute();
+            return true;
         } catch (SQLException e) {
             System.out.println("ERRO AO INSERIR: " + e.getMessage());
-            System.exit(1);
+            return false;
         }
     }
 
@@ -119,6 +128,23 @@ public class Usuario implements Model<Usuario> {
         return false;
     }
 
+    public Usuario login() {
+        String sql = "SELECT id_usuario FROM Usuario WHERE email = '" + this.email + "' AND senha = '" + this.senha + "'";
+        Usuario user = new Usuario();
+
+        try {
+            Statement st = this.cnx.prepareStatement(sql);
+            ResultSet result = st.executeQuery(sql);
+            while (result.next()) {
+                int user_id = result.getInt("id_usuario");
+                user.setId(user_id);
+            }
+        } catch (SQLException e) {
+            System.out.println("ERRO DURANTE TENTATIVA DE RECUPERAÇÃO DE DADOS: " + e.getMessage());
+        }
+        return user;
+    }
+
     public int getIdade() {
         return idade;
     }
@@ -184,8 +210,6 @@ public class Usuario implements Model<Usuario> {
             System.exit(1);
         }
         return false;
-        
-        
     }
 
 }
