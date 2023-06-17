@@ -88,7 +88,7 @@ public class Quiz implements Model<Quiz> {
     @Override
     public ArrayList findAll() {
         ArrayList<Quiz> quizes = new ArrayList<Quiz>();
-        String sql = "SELECT * FROM Quiz q INNER JOIN Usuario u ON q.fk_Usuario_id_usuario = u.id_usuario";
+        String sql = "SELECT * FROM Quiz";
 
         try {
             Statement st = this.cnx.createStatement();
@@ -102,8 +102,7 @@ public class Quiz implements Model<Quiz> {
                 String dica = result.getString("quiz_dica");
                 String tag = result.getString("quiz_tag");
                 String data = result.getString("quiz_data");
-                String username = result.getString("nome");
-                String created_at = result.getString("created_at");
+                String id = result.getString("quiz_id");
 
                 quiz.setNome(nome);
                 quiz.setCategoria(categoria);
@@ -111,8 +110,7 @@ public class Quiz implements Model<Quiz> {
                 quiz.setDica(dica);
                 quiz.setTag(tag);
                 quiz.setData(data);
-                quiz.setUsername(username);
-                quiz.setUser_created_at(created_at);
+                quiz.setId(id);
 
                 quizes.add(quiz);
             }
