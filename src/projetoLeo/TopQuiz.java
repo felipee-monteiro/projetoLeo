@@ -21,15 +21,29 @@ public class TopQuiz extends javax.swing.JFrame {
     /**
      * Creates new form TopQuiz
      */
-    
     private Usuario user;
-    
+
     public TopQuiz() {
         initComponents();
     }
-    
+
     public TopQuiz(Usuario user) {
-       this.user = user;
+        this.user = user;
+        initComponents();
+    }
+
+    public void popular() {
+        Connection cnx = new Conexao().abrirConexao();
+        Quiz quiz = new Quiz(cnx);
+        ArrayList<Quiz> quizes = quiz.findAll();
+        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+        
+        modelo.setRowCount(0);
+
+        quizes.forEach((q) -> {
+            Object[] data = {q.getId(), q.getCategoria(), 0, q.getDescricao()};
+            modelo.addRow(data);
+        });
     }
 
     /**
@@ -47,6 +61,7 @@ public class TopQuiz extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
+        listar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio2 = new javax.swing.JMenu();
         createQuizMenu2 = new javax.swing.JMenuItem();
@@ -106,7 +121,17 @@ public class TopQuiz extends javax.swing.JFrame {
                 "TOP", "CATEGORIA", "RESPONDIDOS", "DESCRIÇÃO"
             }
         ));
+        tabela.setToolTipText("Quiz data");
         jScrollPane1.setViewportView(tabela);
+
+        listar.setBackground(new java.awt.Color(0, 102, 255));
+        listar.setForeground(new java.awt.Color(255, 255, 255));
+        listar.setText("Refresh");
+        listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarActionPerformed(evt);
+            }
+        });
 
         menuInicio2.setText("Menu");
 
@@ -166,9 +191,11 @@ public class TopQuiz extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1291, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 942, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(listar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,7 +213,8 @@ public class TopQuiz extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(listar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -220,15 +248,15 @@ public class TopQuiz extends javax.swing.JFrame {
     }//GEN-LAST:event_createQuizMenu2ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
+
         Categoria voltatCat = new Categoria();
         this.setVisible(false);
         voltatCat.setVisible(true);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        TelaPerfil personalScreen = new TelaPerfil();
+
+        TelaPerfil personalScreen = new TelaPerfil(this.user);
         this.setVisible(false);
         personalScreen.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -236,25 +264,16 @@ public class TopQuiz extends javax.swing.JFrame {
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton12ActionPerformed
-    public void popular(){
-        Connection cnx = new Conexao().abrirConexao();
-        Quiz quiz = new Quiz(cnx);
-        ArrayList<Quiz> quizes = quiz.findAll();
-        
-        DefaultTableModel modelo = (DefaultTableModel)tabela.getModel();
-        modelo.setNumRows(0);
-        
-        for (Quiz q:quizes){
-            Object[] dados = {q.getNome(), q.getCategoria(), q.getId() ,q.getDescricao()};
-            modelo.addRow(dados);
-        }
-    }
+
+    private void listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarActionPerformed
+
+       this.popular();
+    }//GEN-LAST:event_listarActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
-        popular();
         try {
             UIManager.setLookAndFeel("com.formdev.flatlaf.themes.FlatMacLightLaf");
         } catch (Exception ex) {
@@ -263,7 +282,9 @@ public class TopQuiz extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TopQuiz().setVisible(true);
+                TopQuiz n = new TopQuiz();
+                n.setVisible(true);
+                n.popular();
             }
         });
     }
@@ -279,8 +300,9 @@ public class TopQuiz extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton listar;
     private javax.swing.JMenu menuInicio2;
     private javax.swing.JMenuItem myProfile1;
-    private javax.swing.JTable tabela;
+    private static javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
 }

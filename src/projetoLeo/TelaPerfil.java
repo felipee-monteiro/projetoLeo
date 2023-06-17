@@ -1,5 +1,7 @@
 package projetoLeo;
 
+import db.models.Usuario;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -11,11 +13,18 @@ package projetoLeo;
  */
 import javax.swing.UIManager;
 public class TelaPerfil extends javax.swing.JFrame {
+    private Usuario user;
 
     /**
      * Creates new form TelaPerfil3
      */
     public TelaPerfil() {
+        initComponents();
+    }
+    
+    public TelaPerfil(Usuario user) {
+        this.user = user;
+        System.out.println(user.getId());
         initComponents();
     }
 
@@ -204,7 +213,7 @@ public class TelaPerfil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
         TopQuiz topQuiz = new TopQuiz();
         this.setVisible(false);
         topQuiz.setVisible(true);

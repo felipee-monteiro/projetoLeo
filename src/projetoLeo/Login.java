@@ -212,15 +212,17 @@ public class Login extends javax.swing.JFrame {
 
             user.setEmail(email.getText());
             user.setSenha(String.valueOf(pass.getPassword()));
-            
+
             Usuario userLogged = user.login();
 
             if (userLogged.getId() == 0) {
                 JOptionPane.showMessageDialog(null, "Usuário não existe.");
             }
-            
+
             this.setVisible(false);
-            new TopQuiz().setVisible(true);
+            TopQuiz q = new TopQuiz(userLogged);
+            q.setVisible(true);
+            q.popular();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
