@@ -2,7 +2,11 @@ package projetoLeo;
 
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import validators.EmailValidator;
 import validators.FieldValidator;
+import java.sql.*;
+import db.Conexao;
+import db.models.Usuario;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -33,14 +37,14 @@ public class ResetSenha extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        actualPass = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        newPass = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         confirmPass = new javax.swing.JPasswordField();
+        newPass = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -62,7 +66,7 @@ public class ResetSenha extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setText("Senha Atual");
+        jLabel2.setText("Email");
 
         jLabel3.setText("Nova senha");
 
@@ -84,8 +88,7 @@ public class ResetSenha extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(actualPass, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
-                    .addComponent(newPass)
+                    .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -101,7 +104,8 @@ public class ResetSenha extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel7)))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(confirmPass))
+                    .addComponent(confirmPass)
+                    .addComponent(newPass))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -112,14 +116,14 @@ public class ResetSenha extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(actualPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(newPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel7))
@@ -269,15 +273,29 @@ public class ResetSenha extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        actualPass.setInputVerifier(new FieldValidator(actualPass, "Senha Obrigatória"));
+        email.setInputVerifier(new FieldValidator(email, "Senha Obrigatória"));
         newPass.setInputVerifier(new FieldValidator(newPass, "Nova senha obrigatória."));
         boolean pass1 = newPass.getInputVerifier().verify(newPass);
         confirmPass.setInputVerifier(new FieldValidator(confirmPass, "Confimação de senha Obrigatória."));
         boolean pass2 = confirmPass.getInputVerifier().verify(confirmPass);
-        boolean pass3 = actualPass.getInputVerifier().verify(actualPass);
+        boolean pass3 = email.getInputVerifier().verify(email);
+        email.setInputVerifier(new EmailValidator(email));
+        email.getInputVerifier().verify(email);
+        
         if (pass1 && pass2 && pass3) {
+            Connection cnx = new Conexao().abrirConexao();
+            Usuario user = new Usuario(cnx);
+
+            Usuario userLogged = user.findByEmail(email.getText());
+
+            user.update(userLogged.getId(), newPass.getText());
+
             this.setVisible(false);
-            new TopQuiz().setVisible(true);
+            TopQuiz q = new TopQuiz();
+            q.setVisible(true);
+            q.setUser(user.findOne(userLogged.getId()));
+            q.setVisible(true);
+            q.popular();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -326,9 +344,9 @@ public class ResetSenha extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField actualPass;
     private javax.swing.JPasswordField confirmPass;
     private javax.swing.JMenuItem createQuizMenu2;
+    private javax.swing.JTextField email;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -346,6 +364,6 @@ public class ResetSenha extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JMenu menuInicio2;
     private javax.swing.JMenuItem myProfile1;
-    private javax.swing.JTextField newPass;
+    private javax.swing.JPasswordField newPass;
     // End of variables declaration//GEN-END:variables
 }
