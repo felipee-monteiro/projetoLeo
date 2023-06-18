@@ -1,7 +1,9 @@
 package projetoLeo;
 
 import db.Conexao;
+import db.models.Quiz;
 import db.models.Usuario;
+import java.sql.*;
 import javax.swing.JOptionPane;
 
 /*
@@ -57,6 +59,7 @@ public class TelaPerfil extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         apagarrConta = new javax.swing.JButton();
+        apagarrConta1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,6 +123,13 @@ public class TelaPerfil extends javax.swing.JFrame {
             }
         });
 
+        apagarrConta1.setText("delete quiz");
+        apagarrConta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apagarrConta1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -141,7 +151,8 @@ public class TelaPerfil extends javax.swing.JFrame {
                                     .addComponent(nome)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(idade))
-                                .addComponent(apagarrConta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(apagarrConta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(apagarrConta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -177,7 +188,9 @@ public class TelaPerfil extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1)))
-                .addGap(116, 116, 116)
+                .addGap(29, 29, 29)
+                .addComponent(apagarrConta1)
+                .addGap(64, 64, 64)
                 .addComponent(jLabel8)
                 .addGap(5, 5, 5)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,6 +247,13 @@ public class TelaPerfil extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_apagarrContaActionPerformed
 
+    private void apagarrConta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarrConta1ActionPerformed
+        Connection cnx = new Conexao().abrirConexao();
+        this.user.setCnx(new Conexao().abrirConexao());
+        Quiz q = new Quiz(cnx);
+        q.delete(this.user.getId());
+    }//GEN-LAST:event_apagarrConta1ActionPerformed
+
     public static void main(String args[]) {
         Usuario usuario = user;
         
@@ -253,6 +273,7 @@ public class TelaPerfil extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton apagarrConta;
+    private javax.swing.JButton apagarrConta1;
     private javax.swing.JLabel idade;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
