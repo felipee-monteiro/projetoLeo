@@ -11,9 +11,9 @@ import java.util.ArrayList;
 public class Conexao {
     private Connection cnx;
     public Connection abrirConexao() {
-        String url = "jdbc:mysql://localhost:3308/projetoLeo?useTimezone=true&serverTimezone=UTC";
+        String url = "jdbc:mysql://localhost:3306/projetoLeo?useTimezone=true&serverTimezone=UTC";
         String username = "root";
-        String password = "";
+        String password = "1296G@c23";
 
         try {
             cnx = DriverManager.getConnection(url, username, password);
