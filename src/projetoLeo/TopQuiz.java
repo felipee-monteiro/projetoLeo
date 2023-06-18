@@ -243,7 +243,7 @@ public class TopQuiz extends javax.swing.JFrame {
 
     private void createQuizMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createQuizMenu2ActionPerformed
         this.setVisible(false);
-        new NewQuizTela1().setVisible(true);
+        new NewQuiz().setVisible(true);
     }//GEN-LAST:event_createQuizMenu2ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
