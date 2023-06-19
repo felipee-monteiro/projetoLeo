@@ -56,8 +56,8 @@ public class Usuario implements Model<Usuario> {
     }
 
     @Override
-    public Usuario findOne(int id) {
-        String query = "SELECT * FROM Usuario WHERE id_usuario = " + id;
+    public Usuario findOne(Usuario usuario) {
+        String query = "SELECT * FROM Usuario WHERE id_usuario = " + usuario.getId();
         Usuario user = new Usuario();
 
         try {
@@ -246,5 +246,4 @@ public class Usuario implements Model<Usuario> {
         }
         return false;
     }
-
 }

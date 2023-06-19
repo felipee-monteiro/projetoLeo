@@ -18,9 +18,8 @@ public class Quiz implements Model<Quiz> {
     private String tag;
     private String data;
     private String id;
+    private int respondidos;
     private int userId;
-    private String username;
-    private String user_created_at;
 
     public Quiz() {
     }
@@ -32,6 +31,7 @@ public class Quiz implements Model<Quiz> {
     @Override
     public boolean insert() {
         try {
+            String id = UUID.randomUUID().toString();
             PreparedStatement st = this.cnx.prepareStatement("insert into Quiz (quiz_categoria, quiz_nome, quiz_desc, quiz_dica, quiz_tag, quiz_data, fk_Usuario_id_usuario, quiz_id) values (?, ?, ?, ?, ?, ?, ?, ?)");
             st.setString(1, this.categoria);
             st.setString(2, this.nome);
@@ -40,8 +40,9 @@ public class Quiz implements Model<Quiz> {
             st.setString(5, this.tag);
             st.setString(6, this.data);
             st.setInt(7, this.userId);
-            st.setString(8, UUID.randomUUID().toString());
+            st.setString(8, id);
             st.execute();
+            this.setId(id);
             return true;
         } catch (SQLException e) {
             System.out.println("ERRO AO INSERIR: " + e.getMessage());
@@ -50,8 +51,8 @@ public class Quiz implements Model<Quiz> {
     }
 
     @Override
-    public Quiz findOne(int id) {
-        String sql = "SELECT * FROM Quiz q INNER JOIN Usuario u ON q.fk_Usuario_id_usuario = u.id_usuario";
+    public Quiz findOne(Quiz q) {
+        String sql = "SELECT * FROM Quiz WHERE quiz_id = '" + q.getId() + "'";
         Quiz quiz = new Quiz();
 
         try {
@@ -65,8 +66,7 @@ public class Quiz implements Model<Quiz> {
                 String dica = result.getString("quiz_dica");
                 String tag = result.getString("quiz_tag");
                 String data = result.getString("quiz_data");
-                String username = result.getString("nome");
-                String created_at = result.getString("created_at");
+                int resp = result.getInt("respondidos");
 
                 quiz.setNome(nome);
                 quiz.setCategoria(categoria);
@@ -74,8 +74,7 @@ public class Quiz implements Model<Quiz> {
                 quiz.setDica(dica);
                 quiz.setTag(tag);
                 quiz.setData(data);
-                quiz.setUsername(username);
-                quiz.setUser_created_at(user_created_at);
+                quiz.setRespondidos(resp);
             }
         } catch (SQLException e) {
             System.out.println("ERRO DURANTE TENTATIVA DE RECUPERAÇÃO DE DADOS: " + e.getMessage());
@@ -85,17 +84,25 @@ public class Quiz implements Model<Quiz> {
         return quiz;
     }
 
+    public int getRespondidos() {
+        return respondidos;
+    }
+
+    public void setRespondidos(int respondidos) {
+        this.respondidos = respondidos;
+    }
+
     @Override
     public ArrayList findAll() {
         ArrayList<Quiz> quizes = new ArrayList<Quiz>();
-        String sql = "SELECT * FROM Quiz";
+        String sql = "SELECT * FROM Quiz ORDER BY respondidos DESC";
 
         try {
             Statement st = this.cnx.createStatement();
             ResultSet result = st.executeQuery(sql);
-            Quiz quiz = new Quiz();
 
             while (result.next()) {
+                Quiz quiz = new Quiz();
                 String nome = result.getString("quiz_nome");
                 String categoria = result.getString("quiz_categoria");
                 String descricao = result.getString("quiz_desc");
@@ -103,6 +110,7 @@ public class Quiz implements Model<Quiz> {
                 String tag = result.getString("quiz_tag");
                 String data = result.getString("quiz_data");
                 String id = result.getString("quiz_id");
+                int resp = result.getInt("respondidos");
 
                 quiz.setNome(nome);
                 quiz.setCategoria(categoria);
@@ -111,6 +119,7 @@ public class Quiz implements Model<Quiz> {
                 quiz.setTag(tag);
                 quiz.setData(data);
                 quiz.setId(id);
+                quiz.setRespondidos(resp);
 
                 quizes.add(quiz);
             }
@@ -124,7 +133,7 @@ public class Quiz implements Model<Quiz> {
 
     @Override
     public boolean delete(int id) {
-        String sql = "DELETE FROM Quiz WHERE id = " + id;
+        String sql = "DELETE FROM Quiz WHERE fk_Usuario_id_usuario = " + id;
 
         try {
             Statement st = this.cnx.prepareStatement(sql);
@@ -151,25 +160,60 @@ public class Quiz implements Model<Quiz> {
         return false;
     }
 
+    public ArrayList<Quiz> findAllByCategory(String category) {
+        ArrayList<Quiz> quizes = new ArrayList<Quiz>();
+        String sql = "SELECT * FROM Quiz WHERE quiz_categoria = '" + category + "'";
+
+        try {
+            Statement st = this.cnx.createStatement();
+            ResultSet result = st.executeQuery(sql);
+
+            while (result.next()) {
+                Quiz quiz = new Quiz();
+                String nome = result.getString("quiz_nome");
+                String categoria = result.getString("quiz_categoria");
+                String descricao = result.getString("quiz_desc");
+                String dica = result.getString("quiz_dica");
+                String tag = result.getString("quiz_tag");
+                String data = result.getString("quiz_data");
+                String id = result.getString("quiz_id");
+                int resp = result.getInt("respondidos");
+
+                quiz.setNome(nome);
+                quiz.setCategoria(categoria);
+                quiz.setDescricao(descricao);
+                quiz.setDica(dica);
+                quiz.setTag(tag);
+                quiz.setData(data);
+                quiz.setId(id);
+                quiz.setRespondidos(resp);
+
+                quizes.add(quiz);
+            }
+        } catch (SQLException e) {
+            System.out.println("ERRO DURANTE TENTATIVA DE RECUPERAÇÃO DE DADOS: " + e.getMessage());
+            System.exit(1);
+        }
+
+        return quizes;
+    }
+
+    public boolean updateResponses(String id, int total) {
+        String sql = "UPDATE Quiz SET respondidos = " + total + " WHERE quiz_id = '" + id + "'";
+        try {
+            Statement st = this.cnx.prepareStatement(sql);
+            st.execute(sql);
+            return true;
+        } catch (SQLException e) {
+            System.out.println("ERRO AO INSERIR: " + e.getMessage());
+            System.exit(1);
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
-        return "Quiz{" + "categoria=" + categoria + ", nome=" + nome + ", descricao=" + descricao + ", dica=" + dica + ", tag=" + tag + ", data=" + data + ", id=" + id + ", userId=" + userId + ", username=" + username + ", user_created_at=" + user_created_at + '}';
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getUser_created_at() {
-        return user_created_at;
-    }
-
-    public void setUser_created_at(String user_created_at) {
-        this.user_created_at = user_created_at;
+        return "Quiz{" + "cnx=" + cnx + ", categoria=" + categoria + ", nome=" + nome + ", descricao=" + descricao + ", dica=" + dica + ", tag=" + tag + ", data=" + data + ", id=" + id + ", userId=" + userId + '}';
     }
 
     public String getCategoria() {
