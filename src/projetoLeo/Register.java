@@ -313,8 +313,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_createQuizMenu2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        this.setVisible(false);
-        new TelaPreferencias().setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void myProfile1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myProfile1ActionPerformed

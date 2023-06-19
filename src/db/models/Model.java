@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public interface Model<T> {
     public boolean insert();
-    public T findOne(int id);
+    public T findOne(T obj);
     public ArrayList findAll();
     public boolean delete(int id);
     public boolean update(int id, String senha);

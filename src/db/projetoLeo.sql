@@ -1,5 +1,4 @@
 /* Lógico_1: */
-
 DROP DATABASE IF EXISTS projetoLeo;
 
 CREATE DATABASE IF NOT EXISTS projetoLeo;
@@ -26,12 +25,21 @@ CREATE TABLE IF NOT EXISTS Quiz (
     respondidos int not null default 0,
     quiz_id varchar(36),
     fk_Usuario_id_usuario int,
-    PRIMARY KEY (quiz_id),
-
-    CHECK (quiz_categoria IN ('Geografia', 'Matemática', 'Português', 'História', 'Música', 'Ciências', 'Esportes'))
+    PRIMARY KEY (quiz_id, fk_Usuario_id_usuario),
+    CHECK (
+        quiz_categoria IN (
+            'Geografia',
+            'Matemática',
+            'Português',
+            'História',
+            'Música',
+            'Ciências',
+            'Esportes'
+        )
+    )
 );
- 
-ALTER TABLE Quiz ADD CONSTRAINT FK_Quiz_2
-    FOREIGN KEY (fk_Usuario_id_usuario)
-    REFERENCES Usuario (id_usuario)
-    ON DELETE CASCADE;
+
+ALTER TABLE
+    Quiz
+ADD
+    CONSTRAINT FK_Quiz_2 FOREIGN KEY (fk_Usuario_id_usuario) REFERENCES Usuario (id_usuario) ON DELETE CASCADE;

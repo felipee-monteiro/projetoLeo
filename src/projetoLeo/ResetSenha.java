@@ -50,7 +50,6 @@ public class ResetSenha extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio2 = new javax.swing.JMenu();
         createQuizMenu2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         myProfile1 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -124,7 +123,7 @@ public class ResetSenha extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(confirmPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
@@ -174,7 +173,7 @@ public class ResetSenha extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         menuInicio2.setText("Menu");
@@ -186,14 +185,6 @@ public class ResetSenha extends javax.swing.JFrame {
             }
         });
         menuInicio2.add(createQuizMenu2);
-
-        jMenuItem3.setText("Preferências");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        menuInicio2.add(jMenuItem3);
 
         myProfile1.setText("Meu Perfil");
         myProfile1.addActionListener(new java.awt.event.ActionListener() {
@@ -249,11 +240,6 @@ public class ResetSenha extends javax.swing.JFrame {
         new NewQuiz().setVisible(true);
     }//GEN-LAST:event_createQuizMenu2ActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        this.setVisible(false);
-        new TelaPreferencias().setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
     private void myProfile1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myProfile1ActionPerformed
         this.setVisible(false);
         new TelaPerfil().setVisible(true);
@@ -290,7 +276,7 @@ public class ResetSenha extends javax.swing.JFrame {
             this.setVisible(false);
             TopQuiz q = new TopQuiz();
             q.setVisible(true);
-            q.setUser(user.findOne(userLogged.getId()));
+            q.setUser(user.findOne(userLogged));
             q.setVisible(true);
             q.popular();
         }
@@ -354,7 +340,6 @@ public class ResetSenha extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
